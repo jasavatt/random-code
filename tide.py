@@ -43,6 +43,7 @@ def printTide(data):
         print x['t'] + " local time", x['type'], x['v']
 
 
+
 def alert(date_tide):
     url = 'https://maker.ifttt.com/trigger/tide/with/key/' + api_key
     payload = {}
@@ -68,9 +69,9 @@ data = r.json()
 # Look through table for negative tides
 # Print out hi-lo and times for todays (send an alert via IFTTT)
 print '\n'
-print("Seaglass")
+print("Seaglass".center(35,'~'))
 seaglass(data)
 print '\n'
-print("Next 5 Days")
+print("Next 5 Days".center(36,'~'))
 printTide(data)
 print '\n'
