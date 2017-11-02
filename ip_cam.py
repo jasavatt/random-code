@@ -11,7 +11,7 @@ headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8'}
 
-api = remote.API('hassio.local', 'blackjack4')
+api = remote.API('hassio.local', 'PASSWORD')
 home = ''
 last_home = 'start'
 
