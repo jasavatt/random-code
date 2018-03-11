@@ -1,4 +1,6 @@
-import requests, time
+"""stuff."""
+import requests
+import time
 import homeassistant.remote as remote
 
 url = 'http://192.168.1.112'
@@ -23,9 +25,13 @@ while True:
         print(e)
         continue
     if home == last_home:
-        print('.')
+#        print('.')
         time.sleep(10)
         continue
+    if type(home) == 'NoneType':
+        time.sleep(10)
+        continue
+
     print(time.strftime('%a %H:%M:%S'), ' - {}: {}'.format(home.name, home.state))
 
     # set payload based on HA response
@@ -43,7 +49,7 @@ while True:
     try:
         r = s.get(url)
         r = s.post(motion, data=payload, headers=headers)
-        print('fired')
+#        print('fired')
     except Exception as e:
         print(e)
         continue
@@ -54,6 +60,6 @@ while True:
     else:
         onoff = 'on'
 
-    print(time.strftime('%a %H:%M:%S'),' - Motion is {}'.format(onoff))
+    print(time.strftime('%a %H:%M:%S'), ' - Motion is {}'.format(onoff))
     last_home = home
     time.sleep(10)
