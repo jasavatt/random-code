@@ -18,10 +18,12 @@ api_key = 'epBsMRdmppeL3QohvEhJL'
 event = 'alert'
 url = 'https://maker.ifttt.com/trigger/{}/with/key/{}'
 
-def hook(v1, v2, v3):
+def hook(v1, v2='', v3=''):
+    if type(v1) is 'list':
+        v1 = v1[0]
     payload = {'value1': v1, 'value2': v2, 'value3': v3}
     r = requests.post (url.format(event, api_key), json=payload)
     pass
 
 if __name__ == '__main__':
-    hook(argv[1], argv[2], argv[3])
+    hook(argv[1:])
